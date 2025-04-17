@@ -10,22 +10,48 @@ class Pendaftaran extends Model
     use HasFactory;
 
     protected $table = 'pendaftarans'; // Pastikan tabelnya benar
-     protected $fillable = [
-        'user_id', 'nik_anak', 'nama_orang_tua', 'tanggal_booking',
-        'poli_tujuan', 'dokter_id', 'nomor_antrian','status','rekam_medis'
+    protected $fillable = [
+        'user_id',
+        'obat_id',
+        'soap_id',
+        'lab_id',
+        'nik_anak',
+        'nama_orang_tua',
+        'tanggal_booking',
+        'poli_tujuan',
+        'dokter_id',
+        'nomor_antrian',
+        'status',
+        'rekam_medis'
+    ];
+
+    protected $casts = [
+        'obat_id' => 'json'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-        public function pasien()
+
+    public function pasien()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
     public function pendaftarans()
     {
         return $this->hasMany(Pendaftaran::class, 'user_id', 'id');
+    }
+
+    public function soap()
+    {
+        return $this->hasOne(Soap::class, 'pendaftaran_id', 'id');
+    }
+
+    public function lab()
+    {
+        return $this->hasOne(Lab::class, 'id', 'lab_id');
     }
 
     public static function generateRekamMedis()
@@ -45,10 +71,8 @@ class Pendaftaran extends Model
         return 'RM-' . $formattedDate . '-' . $formattedNumber;
     }
 
-        public function dokter()
+    public function dokter()
     {
         return $this->belongsTo(Dokter::class, 'dokter_id');
     }
-
 }
-
