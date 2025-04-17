@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+<!-- Modal -->
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white rounded-lg shadow-lg w-[600px] p-6">
+        <!-- Header -->
+        <div class="bg-green-200 p-4 rounded-t-lg text-center font-semibold text-lg">
+            <span class="font-bold">Input <span class="text-black">E-Resep</span></span> Obat Sediaan
+        </div>
+
+        <!-- Patient Info -->
+        <div class="grid grid-cols-2 gap-4 text-sm p-4">
+            <div>
+                <p>Nama Pasien :</p>
+                <p>Tanggal Lahir :</p>
+                <p>Umur :</p>
+                <p>Alergi :</p>
+            </div>
+            <div>
+                <p>No Resep :</p>
+                <p>Tanggal Resep :</p>
+                <p>Jenis Kelamin :</p>
+                <p>Berat Badan :</p>
+            </div>
+        </div>
+
+        <!-- Form Inputs -->
+        <div class="p-4 border rounded-md">
+            <div class="grid grid-cols-6 gap-2 items-center mb-2 text-sm font-semibold">
+                <label>Nama Obat</label>
+                <label>Jenis Obat</label>
+                <label>Ukuran</label>
+                <label>Banyak</label>
+                <label>Signa</label>
+                <label>Keterangan</label>
+            </div>
+            <div class="grid grid-cols-6 gap-2 items-center">
+                <input type="text" placeholder="Ketikan obat" class="border p-2 rounded-md text-sm">
+                <button class="border p-2 rounded-md bg-gray-200">Pilih</button>
+                <input type="number" placeholder="Angka" class="border p-2 rounded-md text-sm">
+                <input type="number" placeholder="Angka" class="border p-2 rounded-md text-sm">
+                <input type="number" placeholder="Angka" class="border p-2 rounded-md text-sm">
+                <input type="text" placeholder="ket." class="border p-2 rounded-md text-sm">
+                <button class="bg-green-400 text-white px-4 py-2 rounded-md">Ok</button>
+            </div>
+        </div>
+
+        <!-- Prescription List -->
+        <div class="mt-4 p-4 border rounded-md bg-gray-100">
+            <div class="flex justify-between items-center p-2 bg-white rounded-md shadow">
+                <p class="text-sm">Paracetamol tab 500 mg No. XX Signa. 3 dd tab 1 PC prn. Febris</p>
+                <button class="text-red-500">&#128465;</button>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-4">
+            <button class="bg-yellow-300 px-6 py-2 rounded-md">Reset</button>
+            <button class="bg-green-300 px-6 py-2 rounded-md">Simpan</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

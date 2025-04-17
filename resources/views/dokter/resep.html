@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white rounded-lg shadow-lg w-full h-screen p-6">
+            <!-- Header -->
+            <div class="bg-[#B0CFB4] p-4 rounded-t-lg text-center font-semibold text-lg">
+                <span class="font-bold">Input <span class="text-black font-bold">E-Resep</span></span> Obat Sediaan
+            </div>
+
+            <!-- Patient Info -->
+            <div class="grid grid-cols-2 gap-4 text-sm p-4 border-b">
+                <div class="space-y-1">
+                    <p><span class="font-semibold">Nama Pasien :</span></p>
+                    <p><span class="font-semibold">Tanggal Lahir :</span></p>
+                    <p><span class="font-semibold">Umur :</span></p>
+                    <p><span class="font-semibold">Alergi :</span></p>
+                </div>
+                <div class="space-y-1">
+                    <p><span class="font-semibold">No Resep :</span></p>
+                    <p><span class="font-semibold">Tanggal Resep :</span></p>
+                    <p><span class="font-semibold">Jenis Kelamin :</span></p>
+                    <p><span class="font-semibold">Berat Badan :</span></p>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+<div class="flex gap-2 mt-4 mb-2">
+    <button onclick="switchTab('nonracik')" id="tab-nonracik" class="px-4 py-2 rounded-t-md bg-[#B0CFB4] font-semibold">Non Racik</button>
+    <button onclick="switchTab('racik')" id="tab-racik" class="px-4 py-2 rounded-t-md bg-gray-200 font-semibold">Racik</button>
+</div>
+
+<!-- Form Non Racik -->
+    <div id="form-nonracik" class="p-4 border rounded-md">
+
+      <!-- Satu baris field -->
+      <div class="flex flex-wrap items-end gap-4">
+
+        <!-- Nama Obat -->
+        <div class="flex flex-col">
+          <label for="namaObat" class="mb-1 text-sm font-medium">Nama Obat</label>
+          <input type="text" id="namaObat" placeholder="Ketikan obat" class="border p-2 rounded-md text-sm w-40">
+        </div>
+
+        <!-- Jenis Obat -->
+        <div class="flex flex-col">
+          <label for="jenisObat" class="mb-1 text-sm font-medium">Jenis Obat</label>
+          <select id="jenisObat" class="border p-2 rounded-md bg-gray-200 text-sm w-40">
+            <option value="Tablet">Tablet</option>
+            <option value="Kapsul">Kapsul</option>
+            <option value="Sirup Normal">Sirup Normal</option>
+            <option value="Sirup Forte">Sirup Forte</option>
+          </select>
+        </div>
+
+        <!-- Ukuran -->
+        <div class="flex flex-col">
+          <label for="ukuran" class="mb-1 text-sm font-medium">Ukuran</label>
+          <input type="text" id="ukuran" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
+        </div>
+
+        <!-- Satuan -->
+        <div class="flex flex-col">
+          <label for="satuan" class="mb-1 text-sm font-medium">Satuan</label>
+          <input type="text" id="satuan" placeholder="ket." class="border p-2 rounded-md text-sm w-28">
+        </div>
+
+        <!-- Banyak -->
+        <div class="flex flex-col">
+          <label for="banyak" class="mb-1 text-sm font-medium">Banyak</label>
+          <input type="number" id="banyak" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
+        </div>
+
+        <!-- Signa -->
+        <div class="flex flex-col">
+          <label for="signa" class="mb-1 text-sm font-medium">Signa</label>
+          <input type="text" id="signa" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
+        </div>
+
+        <!-- Keterangan -->
+        <div class="flex flex-col">
+          <label for="keterangan" class="mb-1 text-sm font-medium">Keterangan</label>
+          <input type="text" id="keterangan" placeholder="ket." class="border p-2 rounded-md text-sm w-40">
+        </div>
+
+        <!-- Tombol Ok -->
+        <div class="flex flex-col mt-6">
+          <button id="addObat" class="bg-[#709972] hover:bg-green-500 text-white px-4 py-2 rounded-md">
+            OK
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+
+<!-- Form Racik -->
+<div id="form-racik" class="p-4 border rounded-md hidden">
+    <div class="grid grid-cols-5 gap-2 text-sm font-semibold mb-2">
+        <label>Nama Obat</label>
+        <label>Jenis Obat</label>
+        <label>Ukuran</label>
+        <label>Satuan</label>
+        <label>Jumlah</label>
+    </div>
+    <div class="grid grid-cols-5 gap-2 items-center">
+        <input type="text" id="namaRacikan" placeholder="Nama Obat" class="border p-2 rounded-md text-sm w-full">
+        <select id="jenisRacikan" class="border p-2 rounded-md bg-gray-200 text-sm w-full">
+            <option value="Tablet">Tablet</option>
+            <option value="Kapsul">Kapsul</option>
+            <option value="Sirup Normal">Sirup Normal</option>
+            <option value="Sirup Forte">Sirup Forte</option>
+          </select>
+        <input type="number" id="ukuranRacikan" placeholder="Ukuran" class="border p-2 rounded-md text-sm w-full">
+        <input type="text" id="satuanRacikan" placeholder="Satuan" class="border p-2 rounded-md text-sm w-full">
+        <input type="number" id="jumlahRacikan" placeholder="Jumlah" class="border p-2 rounded-md text-sm w-full">
+    </div>
+    <div class="mt-4 flex justify-end">
+        <button id="addRacikan" class="bg-[#709972] text-white px-4 py-2 rounded-md">OK</button>
+    </div>
+
+    <div class="border border-gray-300 rounded-lg p-4 mt-4">
+        <div class="grid grid-cols-2 gap-2 text-sm font-semibold mb-2">
+            <label>Signa</label>
+            <label>Keterangan</label>
+        </div>
+        <div class="grid grid-cols-2 gap-2 items-center">
+            <input type="text" id="signaRacikan" placeholder="Signa" class="border p-2 rounded-md text-sm w-full">
+            <input type="text" id="keteranganRacikan" placeholder="Keterangan" class="border p-2 rounded-md text-sm w-full">
+        </div>
+        <div class="mt-4 flex justify-end">
+            <button id="submitRacikan" class="bg-[#709972] text-white px-4 py-2 rounded-md">Tambah Racikan</button>
+        </div>
+    </div>
+</div>
+
+            <!-- Prescription List -->
+            <div class="mt-4 p-4 border rounded-md bg-gray-100" id="prescriptionListNon">
+                <!-- Items will be added dynamically here -->
+
+            <div class="mt-4 p-4 bg-gray-100" id="prescriptionList">
+
+            </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-between mt-4">
+                <button id="resetForm" class="bg-yellow-300 px-6 py-2 rounded-md">Reset</button>
+                <button class="bg-[#709972] px-6 py-2 rounded-md text-white"><a href="dokter/pasien"> Simpan </a> </button>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+        function switchTab(tab) {
+            const tabNon = document.getElementById("tab-nonracik");
+            const tabRacik = document.getElementById("tab-racik");
+            const formNon = document.getElementById("form-nonracik");
+            const formRacik = document.getElementById("form-racik");
+
+            if (tab === "nonracik") {
+                tabNon.classList.remove("bg-gray-200");
+                tabNon.classList.add("bg-[#B0CFB4]");
+                tabRacik.classList.remove("bg-[#B0CFB4]");
+                tabRacik.classList.add("bg-gray-200");
+                formNon.classList.remove("hidden");
+                formRacik.classList.add("hidden");
+            } else {
+                tabRacik.classList.remove("bg-gray-200");
+                tabRacik.classList.add("bg-[#B0CFB4]");
+                tabNon.classList.remove("bg-[#B0CFB4]");
+                tabNon.classList.add("bg-gray-200");
+                formNon.classList.add("hidden");
+                formRacik.classList.remove("hidden");
+            }
+        }
+    </script>
+    <script>
+        let racikanTemp = []; // sekarang menjadi global
+       const obatList = ["Paracetamol", "Ibuprofen", "Amoxicillin", "Cetirizine", "Ranitidine"];
+    const namaObatInput = document.getElementById("namaObat");
+    const obatListContainer = document.getElementById("obatList");
+
+    namaObatInput.addEventListener("input", function() {
+        const searchText = this.value.toLowerCase();
+        obatListContainer.innerHTML = "";
+        if (searchText) {
+            const filteredObat = obatList.filter(obat => obat.toLowerCase().includes(searchText));
+            filteredObat.forEach(obat => {
+                const listItem = document.createElement("li");
+                listItem.textContent = obat;
+                listItem.classList.add("p-2", "cursor-pointer", "hover:bg-gray-200");
+                listItem.addEventListener("click", function() {
+                    namaObatInput.value = obat;
+                    obatListContainer.classList.add("hidden");
+                });
+                obatListContainer.appendChild(listItem);
+            });
+            obatListContainer.classList.remove("hidden");
+        } else {
+            obatListContainer.classList.add("hidden");
+        }
+    });
+    // SCRIPT TAMBAH DATA NON RACIK
+        document.getElementById('addObat').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            let namaObat = document.getElementById('namaObat').value;
+            let jenisObat = document.getElementById('jenisObat').value;
+            let ukuran = document.getElementById('ukuran').value;
+            let satuan = document.getElementById('satuan').value;
+            let banyak = document.getElementById('banyak').value;
+            let signa = document.getElementById('signa').value;
+            let keterangan = document.getElementById('keterangan').value;
+
+            if (namaObat === '' || ukuran === '' || banyak === '' || signa === '' || satuan === '') {
+                alert('Harap isi semua bidang yang diperlukan');
+                return;
+            }
+
+            let prescriptionList = document.getElementById('prescriptionListNon');
+            let newItem = document.createElement('div');
+            newItem.classList.add('bg-white', 'rounded-md', 'shadow', 'p-4', 'mb-4');
+            newItem.innerHTML = `
+                <p class="text-sm">
+                    ${namaObat}, ${ukuran} ${satuan}, ${banyak} ${jenisObat}.
+                </p>
+                <p class="text-sm font-semibold">Signa : ${signa}</p>
+                <p class="text-sm font-semibold">Keterangan : ${keterangan}</p>
+                <button class="text-red-500" onclick="this.parentElement.remove()">&#128465;</button>
+            `;
+            prescriptionList.appendChild(newItem);
+
+            // Reset fields
+            document.getElementById('namaObat').value = '';
+            document.getElementById('ukuran').value = '';
+            document.getElementById('banyak').value = '';
+            document.getElementById('signa').value = '';
+            document.getElementById('satuan').value = '';
+            document.getElementById('keterangan').value = '';
+        });
+
+        document.getElementById('resetForm').addEventListener('click', function() {
+        document.getElementById('namaObat').value = '';
+        document.getElementById('jenisObat').value = 'Tablet';
+        document.getElementById('ukuran').value = '';
+        document.getElementById('banyak').value = '';
+        document.getElementById('signa').value = '';
+        document.getElementById('satuan').value = '';
+        document.getElementById('keterangan').value = '';
+        document.getElementById('prescriptionList').innerHTML = '';
+    });
+// SCRIPT TAMBAH DATA RACIKAN PER ITEM
+        document.getElementById('addRacikan').addEventListener('click', function(event) {
+    event.preventDefault();
+    let nama = document.getElementById('namaRacikan').value;
+    let jenis = document.getElementById('jenisRacikan').value;
+    let ukuran = document.getElementById('ukuranRacikan').value;
+    let jumlah = document.getElementById('jumlahRacikan').value;
+    let satuan = document.getElementById('satuanRacikan').value;
+
+    let prescriptionList = document.getElementById('prescriptionList');
+
+    if (nama === '' || jenis === '' || jumlah === '' || ukuran === ''|| satuan === '') {
+        alert('Harap isi semua data racikan');
+        return;
+    }
+
+    racikanTemp.push({
+        nama,
+        jenis,
+        ukuran,
+        satuan,
+        jumlah
+    });
+
+    // alert(`Obat ${nama} ditambahkan ke dalam racikan.`);
+
+    prescriptionList.innerHTML = '';
+
+    // Buat container untuk 1 resep racikan
+    let groupDiv = document.createElement('div');
+    groupDiv.classList.add('bg-white', 'rounded-md', 'shadow', 'p-4', 'mb-4');
+
+    let groupItems = racikanTemp.map(item => {
+        return `<li>${item.nama} (${item.jenis}), ${item.ukuran} ${item.satuan}, jumlah ${item.jumlah}</li>`;
+    }).join('');
+
+    groupDiv.innerHTML = `
+        <ul class="list-disc list-inside mb-2">${groupItems}</ul>
+    `;
+
+    prescriptionList.appendChild(groupDiv);
+
+
+    // Reset form racik
+    document.getElementById('namaRacikan').value = '';
+    document.getElementById('jenisRacikan').value = 'Pilih Jenis';
+    document.getElementById('ukuranRacikan').value = '';
+    document.getElementById('jumlahRacikan').value = '';
+    document.getElementById('satuanRacikan').value = '';
+});
+/// Submit 1 grup racikan + tampilkan
+document.getElementById('submitRacikan').addEventListener('click', function () {
+
+    let signa = document.getElementById('signaRacikan').value;
+    let keterangan = document.getElementById('keteranganRacikan').value;
+
+    if (racikanTemp.length === 0) {
+        alert('Belum ada racikan yang dimasukkan!');
+        return;
+    }
+
+    let prescriptionList = document.getElementById('prescriptionList');
+
+    prescriptionList.innerHTML = '';
+    // Buat container untuk 1 resep racikan
+    let groupDiv = document.createElement('div');
+    groupDiv.classList.add('bg-white', 'rounded-md', 'shadow', 'p-4', 'mb-4');
+
+    let groupItems = racikanTemp.map(item => {
+        return `<li>${item.nama} , ${item.ukuran} ${item.satuan}, ${item.jumlah} ${item.jenis}</li>`;
+    }).join('');
+
+    groupDiv.innerHTML = `
+        <p><strong> Racik </strong></p>
+        <ul class="list-disc list-inside mb-2">${groupItems}</ul>
+        <p class="text-sm font-semibold">Signa : ${signa}</p>
+        <p class="text-sm font-semibold">Keterangan : ${keterangan}</p>
+        <button class="text-red-500 mt-2" onclick="this.parentElement.remove()">&#128465;</button>
+    `;
+
+    prescriptionList.appendChild(groupDiv);
+
+    // Kosongkan array setelah ditampilkan
+    racikanTemp = [];
+});
+
+
+
+    </script>
+</body>
+</html>
+
