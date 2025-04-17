@@ -6,15 +6,18 @@ use App\Models\Dokter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pendaftaran;
+use App\Models\Soap;
+use App\Models\User;
 use Carbon\Carbon;
+use Exception;
 
 class PendaftaranController extends Controller
 {
     public function index()
     {
 
-    $user = Auth::user();
-    return view('daftar', compact('user'));
+        $user = Auth::user();
+        return view('daftar', compact('user'));
     }
 
     public function getDokterByPoli(Request $request)
@@ -25,41 +28,42 @@ class PendaftaranController extends Controller
 
     public function store(Request $request)
     {
-            // dd($request->all());
+        // dd($request->all());
 
-            // $request->validate([
-            //     'nama_orang_tua' => 'nullable|string|max:255',
-            //     'nik_anak' => 'nullable|string|max:16',
-            //     'nik' => 'required|string|max:16',
-            //     'tempat_lahir' => 'required|string|max:255',
-            //     'tanggal_lahir' => 'required|date',
-            //     'alamat' => 'required|string|max:255',
-            //     'email' => 'required|email|max:255',
-            //     'nomor_telepon' => 'required|string|max:15',
-            //     'tanggal_booking' => 'required|date',
-            //     'jenis_layanan' => 'required|string|max:255',
-            //     'poli_tujuan' => 'required|string|max:255',
-            //     'dokter' => 'required|string|max:255',
-            //     'jam_booking' => 'required|string|max:255',
-            // ]);
+        // $request->validate([
+        //     'nama_orang_tua' => 'nullable|string|max:255',
+        //     'nik_anak' => 'nullable|string|max:16',
+        //     'nik' => 'required|string|max:16',
+        //     'tempat_lahir' => 'required|string|max:255',
+        //     'tanggal_lahir' => 'required|date',
+        //     'alamat' => 'required|string|max:255',
+        //     'email' => 'required|email|max:255',
+        //     'nomor_telepon' => 'required|string|max:15',
+        //     'tanggal_booking' => 'required|date',
+        //     'jenis_layanan' => 'required|string|max:255',
+        //     'poli_tujuan' => 'required|string|max:255',
+        //     'dokter' => 'required|string|max:255',
+        //     'jam_booking' => 'required|string|max:255',
+        // ]);
 
-            $today = Carbon::today();
-            $lastAntrian = Pendaftaran::where('tanggal_booking', $today)->max('nomor_antrian');
-            $nomorAntrian = $lastAntrian ? $lastAntrian + 1 : 1;
+        $today = Carbon::today();
+        $lastAntrian = Pendaftaran::where('tanggal_booking', $today)->max('nomor_antrian');
+        $nomorAntrian = $lastAntrian ? $lastAntrian + 1 : 1;
 
         $user = Auth::user();
 
         // Cek apakah sudah ada pendaftaran dengan dokter dan tanggal yang sama
         $existingBooking = Pendaftaran::where('user_id', Auth::id())
-        ->where('dokter_id', $request->dokter_id)
-        ->where('tanggal_booking', $request->tanggal_booking)
-        ->first();
+            ->where('dokter_id', $request->dokter_id)
+            ->where('tanggal_booking', $request->tanggal_booking)
+            ->first();
 
         if ($existingBooking) {
             return back()->withErrors(['error' => 'Anda sudah mendaftar dengan dokter ini pada tanggal yang sama.'])->withInput();
         }
+
         // **Cek apakah data di tabel users kosong, jika kosong, isi dari form**
-        $user->update([
+        User::find($user->id)->update([
             'nik' => $user->nik ?: $request->nik,
             'tempat_lahir' => $user->tempat_lahir ?: $request->tempat_lahir,
             'tanggal_lahir' => $user->tanggal_lahir ?: $request->tanggal_lahir,
@@ -94,15 +98,17 @@ class PendaftaranController extends Controller
         return $count + 1;
     }
 
-    public function profil(){
+    public function profil()
+    {
         $user = Auth::user();
         $pendaftaran = Pendaftaran::where('user_id', $user->id)->first();
 
 
-        return view('profil', compact('pendaftaran','user'));
+        return view('profil', compact('pendaftaran', 'user'));
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $user = Auth::user();
 
         $request->validate([
@@ -116,7 +122,7 @@ class PendaftaranController extends Controller
             'alamat' => 'nullable|string',
         ]);
 
-        $user->update($request->only([
+        User::find($user->id)->update($request->only([
             'name',
             'email',
             'nomor_telepon',
@@ -130,5 +136,25 @@ class PendaftaranController extends Controller
         return redirect()->back()->with('success', 'Profil berhasil diperbarui!');
     }
 
+    public function setKategori(Request $req)
+    {
+        $req->validate([
+            'pendaftaran_id' => 'required',
+            'kategori' => 'required'
+        ]);
 
+        try {
+            Soap::where('pendaftaran_id', $req->pendaftaran_id)
+                ->update([
+                    'objektif_perawat' => $req->kategori
+                ]);
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'success'
+            ], 200);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

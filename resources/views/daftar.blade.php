@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Pendaftaran</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{ config('app.name') }}</title>
+    @vite('resources/css/app.css')
 </head>
+
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
         @if ($errors->any())
-    <div class="bg-red-500 text-white p-3 rounded mt-2">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+            <div class="bg-red-500 text-white p-3 rounded mt-2">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <h2 class="text-center text-2xl font-bold text-green-700">Form Pendaftaran</h2>
 
@@ -34,35 +36,47 @@
                 <h3 class="text-lg font-semibold bg-green-700 text-white p-2 rounded">Data Identitas</h3>
                 <input type="text" value="{{ $user->name }}" class="w-full border p-2 mt-2 rounded" disabled>
                 <select name="jenis_kelamin" id="jenis_kelamin" class="w-full border p-2 mt-2 rounded">
-                    <option value="Laki-laki" {{ old('jenis_kelamin', $user->jenis_kelamin) == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                <option value="Perempuan" {{ old('jenis_kelamin', $user->jenis_kelamin) == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                    <option value="Laki-laki"
+                        {{ old('jenis_kelamin', $user->jenis_kelamin) == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
+                    </option>
+                    <option value="Perempuan"
+                        {{ old('jenis_kelamin', $user->jenis_kelamin) == 'Perempuan' ? 'selected' : '' }}>Perempuan
+                    </option>
                 </select>
-                <input type="text" name="nama_orang_tua" placeholder="Nama Orang Tua / Anak (Boleh Di kosongkan)" class="w-full border p-2 mt-2 rounded" >
+                <input type="text" name="nama_orang_tua" placeholder="Nama Orang Tua / Anak (Boleh Di kosongkan)"
+                    class="w-full border p-2 mt-2 rounded">
                 @error('nama_orang_tua')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
-                <input type="text" name="nik_anak" placeholder="NIK Anak" class="w-full border p-2 mt-2 rounded" >
+                <input type="text" name="nik_anak" placeholder="NIK Anak" class="w-full border p-2 mt-2 rounded">
                 @error('nik_anak')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
-                <input type="text" name="nik"  value="{{ $user->nik }}" placeholder="NIK" class="w-full border p-2 mt-2 rounded" required>
+                <input type="text" name="nik" value="{{ $user->nik }}" placeholder="NIK"
+                    class="w-full border p-2 mt-2 rounded" required>
                 @error('nik')
-                <p class="text-red-500 text-sm">{{ $message }}</p>
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
-                <input type="text" name="tempat_lahir"  value="{{ $user->tempat_lahir }}" placeholder="Tempat Lahir" class="w-full border p-2 mt-2 rounded" required>
-                <input type="date" name="tanggal_lahir"  value="{{ $user->tanggal_lahir }}" class="w-full border p-2 mt-2 rounded" required>
-                <input type="text" name="alamat"  value="{{ $user->alamat }}" placeholder="Alamat" class="w-full border p-2 mt-2 rounded" required>
+                <input type="text" name="tempat_lahir" value="{{ $user->tempat_lahir }}" placeholder="Tempat Lahir"
+                    class="w-full border p-2 mt-2 rounded" required>
+                <input type="date" name="tanggal_lahir" value="{{ $user->tanggal_lahir }}"
+                    class="w-full border p-2 mt-2 rounded" required>
+                <input type="text" name="alamat" value="{{ $user->alamat }}" placeholder="Alamat"
+                    class="w-full border p-2 mt-2 rounded" required>
                 <div class="flex gap-2">
-                    <input type="email" name="email"   value="{{ $user->email }}"placeholder="Email" class="w-full border p-2 mt-2 rounded" required>
+                    <input type="email" name="email" value="{{ $user->email }}"placeholder="Email"
+                        class="w-full border p-2 mt-2 rounded" required>
                     @error('email')
-                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                        <p class="text-red-500 text-sm">{{ $message }}</p>
                     @enderror
-                    <input type="text" name="nomor_telepon"  value="{{ $user->nomor_telepon }}" placeholder="Nomor Telepon" class="w-full border p-2 mt-2 rounded" required>
+                    <input type="text" name="nomor_telepon" value="{{ $user->nomor_telepon }}"
+                        placeholder="Nomor Telepon" class="w-full border p-2 mt-2 rounded" required>
                     @error('nomor_telepon')
-                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                        <p class="text-red-500 text-sm">{{ $message }}</p>
                     @enderror
                 </div>
-                <button id="next" type="button" class="bg-green-600 text-white w-full py-2 mt-4 rounded">Lanjut</button>
+                <button id="next" type="button"
+                    class="bg-green-600 text-white w-full py-2 mt-4 rounded">Lanjut</button>
             </div>
 
             <!-- Step 2 -->
@@ -85,7 +99,8 @@
 
 
                 <div class="flex justify-between mt-4">
-                    <button id="prev" type="button" class="bg-gray-400 text-white px-4 py-2 rounded">Sebelumnya</button>
+                    <button id="prev" type="button"
+                        class="bg-gray-400 text-white px-4 py-2 rounded">Sebelumnya</button>
                     <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Daftar</button>
                 </div>
             </div>
@@ -131,19 +146,24 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#poli_tujuan').change(function () {
+        $(document).ready(function() {
+            $('#poli_tujuan').change(function() {
                 let poli = $(this).val();
                 $('#dokter').html('<option value="" disabled selected>Loading...</option>');
 
                 $.ajax({
                     url: '/get-dokter',
                     type: 'GET',
-                    data: { poli: poli },
-                    success: function (response) {
-                        $('#dokter').html('<option value="" disabled selected>Pilih Dokter</option>');
-                        response.forEach(function (dokter) {
-                            $('#dokter').append(`<option value="${dokter.id}">${dokter.nama_dokter} (${dokter.jam_operasional})</option>`);
+                    data: {
+                        poli: poli
+                    },
+                    success: function(response) {
+                        $('#dokter').html(
+                            '<option value="" disabled selected>Pilih Dokter</option>');
+                        response.forEach(function(dokter) {
+                            $('#dokter').append(
+                                `<option value="${dokter.id}">${dokter.nama_dokter} (${dokter.jam_operasional})</option>`
+                            );
                         });
                     }
                 });
@@ -152,4 +172,5 @@
     </script>
 
 </body>
+
 </html>

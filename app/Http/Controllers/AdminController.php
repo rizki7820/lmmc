@@ -18,12 +18,12 @@ class AdminController extends Controller
         $today = now()->toDateString();
         // Cek apakah user memiliki nomor antrian hari ini
         $antrian = Pendaftaran::where('tanggal_booking', $today)
-        ->orderBy('nomor_antrian', 'asc')
-        ->first();
+            ->orderBy('nomor_antrian', 'asc')
+            ->first();
 
-            return view('admin/home', [
+        return view('admin/home', [
             'user' => $user,
             'antrian' => $antrian
-            ]);
+        ]);
     }
 }
