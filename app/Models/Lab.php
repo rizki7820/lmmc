@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lab extends Model
 {
+    // ini fillable
     protected $fillable = [
         'dlo',
         'kimia_darah',
