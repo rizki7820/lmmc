@@ -8,7 +8,7 @@
                 <div class="flex-1 p-5">
                     <p id="dateTime" class="text-xl font-bold" style="color: #618162;"></p>
                     <h1 class="text-4xl font-bold text-gray-900 uppercase leading-tight">
-                        Selamat Datang,<br> {{ $user->name }} !
+                         Datang,<br> {{ $user->name }} !
                     </h1>
 
                     <p class="text-gray-800 mt-3 text-lg">
