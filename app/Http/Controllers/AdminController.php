@@ -20,7 +20,8 @@ class AdminController extends Controller
         $antrian = Pendaftaran::where('tanggal_booking', $today)
             ->orderBy('nomor_antrian', 'asc')
             ->first();
-
+            
+        // kembali ke home
         return view('admin/home', [
             'user' => $user,
             'antrian' => $antrian
