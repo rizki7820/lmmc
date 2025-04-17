@@ -19,7 +19,7 @@
     <div style="background-color: #B0CFB4;" class="absolute w-full dark:hidden min-h-75"></div>
 
     <!-- ASIDE (Sama di Semua Halaman) -->
-    @include('partials.sidebar-admin2')
+    @include('_partials.sidebar-admin2')
 
 
     <!-- CONTENT UTAMA -->
