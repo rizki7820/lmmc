@@ -81,6 +81,7 @@ class PendaftaranController extends Controller
             'nik_anak' => $request->nik_anak,
             'nama_orang_tua' => $request->nama_orang_tua,
             'tanggal_booking' => $request->tanggal_booking,
+            'nomor_telepon' => $request->nomor_telepon,
             'poli_tujuan' => $request->poli_tujuan,
             'dokter_id' => $request->dokter_id,
             'nomor_antrian' => $this->generateNomorAntrian($request->tanggal_booking),
