@@ -17,6 +17,7 @@ class Pendaftaran extends Model
         'lab_id',
         'nik_anak',
         'nama_orang_tua',
+        'nomor_telepon',
         'tanggal_booking',
         'poli_tujuan',
         'dokter_id',
