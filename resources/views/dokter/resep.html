@@ -156,6 +156,10 @@
             <!-- Prescription List -->
             <div class="mt-4 p-4 border rounded-md bg-gray-100" id="prescriptionListNon">
                 <!-- Items will be added dynamically here -->
+                <div class="border border-gray-300 rounded-lg p-4 mt-4">
+                    <p class="font-semibold mb-2">Obat-obat dalam racikan sementara:</p>
+                    <ul id="racikanTempContainer" class="list-disc list-inside"></ul>
+                </div>
 
                 <div class="mt-4 p-4 bg-gray-100" id="prescriptionList">
 
@@ -280,8 +284,6 @@
             let jumlah = document.getElementById('jumlahRacikan').value;
             let satuan = document.getElementById('satuanRacikan').value;
 
-            // let prescriptionList = document.getElementById('prescriptionList');
-
             if (nama === '' || jenis === '' || jumlah === '' || ukuran === '' || satuan === '') {
                 alert('Harap isi semua data racikan');
                 return;
@@ -295,28 +297,15 @@
                 jumlah
             });
 
-            //         // alert(`Obat ${nama} ditambahkan ke dalam racikan.`);
-
-            //         prescriptionList.innerHTML = '';
-
-            //         // Buat container untuk 1 resep racikan
-            //         let groupDiv = document.createElement('div');
-            //         groupDiv.classList.add('bg-white', 'rounded-md', 'shadow', 'p-4', 'mb-4');
-
-            //         let groupItems = racikanTemp.map(item => {
-            //             return `<li>${item.nama} (${item.jenis}), ${item.ukuran} ${item.satuan}, jumlah ${item.jumlah}</li>`;
-            //         }).join('');
-
-            //         groupDiv.innerHTML = `
-            //     <ul class="list-disc list-inside mb-2">${groupItems}</ul>
-            // `;
-
-            //         prescriptionList.appendChild(groupDiv);
-
+            // tampilin obat di temp container
+            let tempContainer = document.getElementById('racikanTempContainer');
+            let newItem = document.createElement('li');
+            newItem.textContent = `${nama} (${jenis}), ${ukuran} ${satuan}, jumlah ${jumlah}`;
+            tempContainer.appendChild(newItem);
 
             // Reset form racik
             document.getElementById('namaRacikan').value = '';
-            document.getElementById('jenisRacikan').value = 'Pilih Jenis';
+            document.getElementById('jenisRacikan').value = 'Tablet';
             document.getElementById('ukuranRacikan').value = '';
             document.getElementById('jumlahRacikan').value = '';
             document.getElementById('satuanRacikan').value = '';
@@ -347,18 +336,20 @@
             }).join('');
 
             groupDiv.innerHTML = `
-        <p><strong> Racik </strong></p>
-        <ul class="list-disc list-inside mb-2">${groupItems}</ul>
-        <p class="text-sm font-semibold">Signa : ${signa}</p>
-        <p class="text-sm font-semibold">Keterangan : ${keterangan}</p>
-        <button class="text-red-500 mt-2" onclick="this.parentElement.remove()">&#128465; Hapus</button>
-    `;
+                <p><strong> Racik </strong></p>
+                <ul class="list-disc list-inside mb-2">${groupItems}</ul>
+                <p class="text-sm font-semibold">Signa : ${signa}</p>
+                <p class="text-sm font-semibold">Keterangan : ${keterangan}</p>
+                <button class="text-red-500 mt-2" onclick="this.parentElement.remove()">&#128465; Hapus</button>
+            `;
 
             // tambah grup racikan baru ke container utama
+            let prescriptionList = document.getElementById('prescriptionList');
             prescriptionList.appendChild(groupDiv);
 
             // Kosongkan array setelah ditampilkan
             racikanTemp = [];
+            document.getElementById('racikanTempContainer').innerHTML = '';
             document.getElementById('signaRacikan').value = '';
             document.getElementById('keteranganRacikan').value = '';
         });
