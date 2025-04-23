@@ -103,8 +103,8 @@
                     <div class="flex justify-content-center align-items-center" style="grid-gap: .8rem">
                         <div class="w-1/2">
                             <div class="mb-3">
-                                <label for="dlo" class="block text-base mb-2 mt-6 font-medium">Darah Lengkap Otomatis (DLO)</label>
-                                <div class="w-full" style="max-height: 100px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                                <label for="dlo" class="block text-base mb-1.5 mt-4 font-medium">Darah Lengkap Otomatis (DLO)</label>
+                                <div class="w-full" style="max-height: 90px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
                                     <label for="hemoglobin"><input type="checkbox" name="dlo[]" id="hemoglobin" value="Hemoglobin" class="mr-2">Hemoglobin</label><br>
                                     <label for="hematokrit"><input type="checkbox" name="dlo[]" id="hematokrit" value="Hematokrit" class="mr-2">Hematokrit</label><br>
                                     <label for="eritrosit"><input type="checkbox" name="dlo[]" id="eritrosit" value="Eritrosit" class="mr-2">Eritrosit</label><br>
@@ -125,8 +125,8 @@
 
 
                             <div class="mb-3">
-                                <label for="kimia_darah" class="block text-base mb-2 mt-6 font-medium">Kimia Darah</label>
-                                <div class="w-full" style="max-height: 100px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                                <label for="kimia_darah" class="block text-base mb-1.5 mt-4 font-medium">Kimia Darah</label>
+                                <div class="w-full" style="max-height: 90px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
                                     <label for="sgot"><input type="checkbox" name="kimia_darah[]" id="sgot" value="SGOT" class="mr-2">SGOT</label><br>
                                     <label for="sgpt"><input type="checkbox" name="kimia_darah[]" id="sgpt" value="SGPT" class="mr-2">SGPT</label><br>
                                     <label for="gula_darah"><input type="checkbox" name="kimia_darah[]" id="gula_darah" value="Gula Darah" class="mr-2">Gula Darah</label><br>
@@ -143,77 +143,92 @@
 
 
                             <div class="mb-3">
-                                <label for="urinalisis" class="block text-base mb-2 mt-6 font-medium">Urinalisis</label>
-                                <select name="urinalisis[]" id="urinalisis" class="w-full block p-2 border rounded"
-                                    multiple>
-                                    <option value="pH">pH</option>
-                                    <option value="Berat Jenis">Berat Jenis</option>
-                                    <option value="Eritrosit">Eritrosit</option>
-                                    <option value="Leukosit">Leukosit</option>
-                                    <option value="Keton">Keton</option>
-                                    <option value="Nitrit">Nitrit</option>
-                                    <option value="Urobilinogen">Urobilinogen</option>
-                                    <option value="Bilirubin">Bilirubin</option>
-                                    <option value="Protein">Protein</option>
-                                    <option value="Glukosa">Glukosa</option>
-                                </select>
+                            <label for="urinalisis" class="block text-base mb-1.5 mt-4 font-medium">Urinalisis</label>
+                            <div class="w-full" style="max-height: 90px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                                <label for="ph"><input type="checkbox" name="urinalisis[]" id="ph" value="pH" class="mr-2">pH</label><br>
+                                <label for="berat_jenis"><input type="checkbox" name="urinalisis[]" id="berat_jenis" value="Berat Jenis" class="mr-2">Berat Jenis</label><br>
+                                <label for="eritrosit"><input type="checkbox" name="urinalisis[]" id="eritrosit" value="Eritrosit" class="mr-2">Eritrosit</label><br>
+                                <label for="leukosit"><input type="checkbox" name="urinalisis[]" id="leukosit" value="Leukosit" class="mr-2">Leukosit</label><br>
+                                <label for="keton"><input type="checkbox" name="urinalisis[]" id="keton" value="Keton" class="mr-2">Keton</label><br>
+                                <label for="nitrit"><input type="checkbox" name="urinalisis[]" id="nitrit" value="Nitrit" class="mr-2">Nitrit</label><br>
+                                <label for="urobilinogen"><input type="checkbox" name="urinalisis[]" id="urobilinogen" value="Urobilinogen" class="mr-2">Urobilinogen</label><br>
+                                <label for="bilirubin"><input type="checkbox" name="urinalisis[]" id="bilirubin" value="Bilirubin" class="mr-2">Bilirubin</label><br>
+                                <label for="protein"><input type="checkbox" name="urinalisis[]" id="protein" value="Protein" class="mr-2">Protein</label><br>
+                                <label for="glukosa"><input type="checkbox" name="urinalisis[]" id="glukosa" value="Glukosa" class="mr-2">Glukosa</label><br>
                             </div>
+                        </div>
+
 
                             <div class="mb-3">
-                                <label for="narkoba" class="block text-base mb-2 mt-6 font-medium">Narkoba</label>
-                                <select name="narkoba[]" id="narkoba" class="w-full block p-2 border rounded" multiple>
-                                    <option value="Amfetamin">Amfetamin</option>
-                                    <option value="Metamfetamin">Metamfetamin</option>
-                                    <option value="Benzodiazepin">Benzodiazepin</option>
-                                    <option value="Kokain">Kokain</option>
-                                    <option value="Morfin">Morfin</option>
-                                    <option value="THC">THC</option>
-                                </select>
+                            <label for="narkoba" class="block text-base mb-1.5 mt-4 font-medium">Narkoba</label>
+                            <div class="w-full" style="max-height: 90px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                                <label for="amfetamin"><input type="checkbox" name="narkoba[]" id="amfetamin" value="Amfetamin" class="mr-2">Amfetamin</label><br>
+                                <label for="metamfetamin"><input type="checkbox" name="narkoba[]" id="metamfetamin" value="Metamfetamin" class="mr-2">Metamfetamin</label><br>
+                                <label for="benzodiazepin"><input type="checkbox" name="narkoba[]" id="benzodiazepin" value="Benzodiazepin" class="mr-2">Benzodiazepin</label><br>
+                                <label for="kokain"><input type="checkbox" name="narkoba[]" id="kokain" value="Kokain" class="mr-2">Kokain</label><br>
+                                <label for="morfin"><input type="checkbox" name="narkoba[]" id="morfin" value="Morfin" class="mr-2">Morfin</label><br>
+                                <label for="thc"><input type="checkbox" name="narkoba[]" id="thc" value="THC" class="mr-2">THC</label><br>
+                            </div>
                             </div>
                         </div>
 
                         <div class="w-1/2">
-                            <div class="mb-3">
-                                <label for="serologi_dengue" class="block text-base mb-2 mt-6 font-medium">Serologi Dengue</label>
-                                <select name="serologi_dengue[]" id="serologi_dengue"
-                                    class="w-full block p-2 border rounded" multiple>
-                                    <option value="NS1">NS1</option>
-                                    <option value="IgM Anti-Dengue">IgM Anti-Dengue</option>
-                                    <option value="IgG Anti-Dengue">IgG Anti-Dengue</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="widal" class="block text-base mb-2 mt-6 font-medium">Widal</label>
-                                <select name="widal[]" id="widal" class="w-full block p-2 border rounded" multiple>
-                                    <option value="Titer O">Titer O</option>
-                                    <option value="Titer H">Titer H</option>
-                                    <option value="Titer AO">Titer AO</option>
-                                    <option value="Titer BO">Titer BO</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="golongan_darah" class="block text-base mb-2 mt-6 font-medium">Golongan Darah</label>
-                                <select name="golongan_darah[]" id="golongan_darah"
-                                    class="w-full block p-2 border rounded" multiple>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="AB">AB</option>
-                                    <option value="O">O</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="anti_d_rhesus" class="block text-base mb-2 mt-6 font-medium">Anti D Rhesus</label>
-                                <select name="anti_d_rhesus[]" id="anti_d_rhesus" class="w-full block p-2 border rounded"
-                                    multiple>
-                                    <option value="Rhesus +">Rhesus +</option>
-                                    <option value="Rhesus -">Rhesus -</option>
-                                </select>
+                        <div class="mb-3">
+                            <label class="block text-base mb-1.5 mt-4 font-medium">Serologi Dengue</label>
+                            <div class="w-full" style="max-height: 90px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                                <label for="ns1"><input type="checkbox" name="serologi_dengue[]" id="ns1" value="NS1" class="mr-2">NS1</label><br>
+                                <label for="igm"><input type="checkbox" name="serologi_dengue[]" id="igm" value="IgM Anti-Dengue" class="mr-2">IgM Anti-Dengue</label><br>
+                                <label for="igg"><input type="checkbox" name="serologi_dengue[]" id="igg" value="IgG Anti-Dengue" class="mr-2">IgG Anti-Dengue</label><br>
                             </div>
                         </div>
+
+
+                        <div class="mb-3">
+                            <label for="widal" class="block text-base mb-1.5 mt-4 font-medium">Widal</label>
+                            <div class="w-full" style="max-height: 90px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                                <!-- Checkbox Pilih Semua -->
+                                <label>
+                                    <input type="checkbox" id="select_all_widal" class="mr-2">Pilih Semua
+                                </label> <br>
+
+                                <!-- Checkbox Pilihan -->
+                                <label><input type="checkbox" name="widal[]" value="Titer O" class="widal mr-2">Titer O</label><br>
+                                <label><input type="checkbox" name="widal[]" value="Titer H" class="widal mr-2">Titer H</label><br>
+                                <label><input type="checkbox" name="widal[]" value="Titer AO" class="widal mr-2">Titer AO</label><br>
+                                <label><input type="checkbox" name="widal[]" value="Titer BO" class="widal mr-2">Titer BO</label><br>
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-3">
+                            <label for="golongan_darah" class="block text-base mb-1.5 mt-4 font-medium">Golongan Darah</label>
+                            <div class="w-full" style="max-height: 90px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                                <!-- Checkbox Pilih Semua -->
+                                <label>
+                                    <input type="checkbox" id="select_all_goldarah" class="mr-2">Pilih Semua
+                                </label> <br>
+
+                                <!-- Checkbox Pilihan -->
+                                <label><input type="checkbox" name="golongan_darah[]" value="A" class="goldarah mr-2">A</label><br>
+                                <label><input type="checkbox" name="golongan_darah[]" value="B" class="goldarah mr-2">B</label><br>
+                                <label><input type="checkbox" name="golongan_darah[]" value="AB" class="goldarah mr-2">AB</label><br>
+                                <label><input type="checkbox" name="golongan_darah[]" value="O" class="goldarah mr-2">O</label><br>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3">
+                        <label class="block text-base mb-1.5 mt-4 font-medium"> Anti D Rhesus </label>                        
+                        <div class="w-full" style="max-height: 90px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                        <label><input type="checkbox" id="select_all_rhesus" class="mr-2">Pilih Semua </label> <br>
+                        <label><input type="checkbox" name="anti_d_rhesus[]" class="rhesus mr-2" value="Rhesus +">Rhesus +</label><br>
+                        <label><input type="checkbox" name="anti_d_rhesus[]" class="rhesus mr-2" value="Rhesus -">Rhesus -</label><br>
+                        </div>
                     </div>
+
+            </div>
+        </div>
 
                     <div class="flex justify-end mt-4">
                         <button type="button" onclick="closeModal('labModal')"
@@ -593,6 +608,35 @@
         $('select option').on('mousedown', function(e) {
             this.selected = !this.selected;
             e.preventDefault();
+        });
+    </script>
+    <script>
+    document.getElementById('igm').addEventListener('change', function () {
+        const iggCheckbox = document.getElementById('igg');
+        if (this.checked) {
+        iggCheckbox.checked = true;
+        }
+    });
+    </script>
+
+    <script>
+    document.getElementById('select_all_rhesus').addEventListener('change', function () {
+        const checkboxes = document.querySelectorAll('.rhesus');
+        checkboxes.forEach(cb => cb.checked = this.checked);
+    });
+    </script>
+
+    <script>
+        document.getElementById('select_all_goldarah').addEventListener('change', function () {
+            const checkboxes = document.querySelectorAll('.goldarah');
+            checkboxes.forEach(cb => cb.checked = this.checked);
+        });
+    </script>
+
+    <script>
+        document.getElementById('select_all_widal').addEventListener('change', function () {
+            const checkboxes = document.querySelectorAll('.widal');
+            checkboxes.forEach(cb => cb.checked = this.checked);
         });
     </script>
 @endpush
