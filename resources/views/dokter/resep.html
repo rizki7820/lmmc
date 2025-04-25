@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
-    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-        <div class="bg-white rounded-lg shadow-lg w-full h-screen p-6">
+    <div class="fixed inset-0 flex items-center justify-center overflow-auto">
+        <div class="bg-white rounded-lg shadow-lg w-full p-6">
             <!-- Header -->
             <div class="bg-[#B0CFB4] p-4 rounded-t-lg text-center font-semibold text-lg">
                 <span class="font-bold">Input <span class="text-black font-bold">E-Resep</span></span> Obat Sediaan
@@ -31,134 +33,150 @@
             </div>
 
             <!-- Tabs -->
-<div class="flex gap-2 mt-4 mb-2">
-    <button onclick="switchTab('nonracik')" id="tab-nonracik" class="px-4 py-2 rounded-t-md bg-[#B0CFB4] font-semibold">Non Racik</button>
-    <button onclick="switchTab('racik')" id="tab-racik" class="px-4 py-2 rounded-t-md bg-gray-200 font-semibold">Racik</button>
-</div>
+            <div class="flex gap-2 mt-4 mb-2">
+                <button onclick="switchTab('nonracik')" id="tab-nonracik"
+                    class="px-4 py-2 rounded-t-md bg-[#B0CFB4] font-semibold">Non Racik</button>
+                <button onclick="switchTab('racik')" id="tab-racik"
+                    class="px-4 py-2 rounded-t-md bg-gray-200 font-semibold">Racik</button>
+            </div>
 
-<!-- Form Non Racik -->
-    <div id="form-nonracik" class="p-4 border rounded-md">
+            <!-- Form Non Racik -->
+            <div id="form-nonracik" class="p-4 border rounded-md">
 
-      <!-- Satu baris field -->
-      <div class="flex flex-wrap items-end gap-4">
+                <!-- Satu baris field -->
+                <div class="flex flex-wrap items-end gap-4">
 
-        <!-- Nama Obat -->
-        <div class="flex flex-col">
-          <label for="namaObat" class="mb-1 text-sm font-medium">Nama Obat</label>
-          <input type="text" id="namaObat" placeholder="Ketikan obat" class="border p-2 rounded-md text-sm w-40">
-        </div>
+                    <!-- Nama Obat -->
+                    <div class="flex flex-col">
+                        <label for="namaObat" class="mb-1 text-sm font-medium">Nama Obat</label>
+                        <input type="text" id="namaObat" placeholder="Ketikan obat"
+                            class="border p-2 rounded-md text-sm w-40">
+                    </div>
 
-        <!-- Jenis Obat -->
-        <div class="flex flex-col">
-          <label for="jenisObat" class="mb-1 text-sm font-medium">Jenis Obat</label>
-          <select id="jenisObat" class="border p-2 rounded-md bg-gray-200 text-sm w-40">
-            <option value="Tablet">Tablet</option>
-            <option value="Kapsul">Kapsul</option>
-            <option value="Sirup Normal">Sirup Normal</option>
-            <option value="Sirup Forte">Sirup Forte</option>
-          </select>
-        </div>
+                    <!-- Jenis Obat -->
+                    <div class="flex flex-col">
+                        <label for="jenisObat" class="mb-1 text-sm font-medium">Jenis Obat</label>
+                        <select id="jenisObat" class="border p-2 rounded-md bg-gray-200 text-sm w-40">
+                            <option value="Tablet">Tablet</option>
+                            <option value="Kapsul">Kapsul</option>
+                            <option value="Sirup Normal">Sirup Normal</option>
+                            <option value="Sirup Forte">Sirup Forte</option>
+                        </select>
+                    </div>
 
-        <!-- Ukuran -->
-        <div class="flex flex-col">
-          <label for="ukuran" class="mb-1 text-sm font-medium">Ukuran</label>
-          <input type="text" id="ukuran" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
-        </div>
+                    <!-- Ukuran -->
+                    <div class="flex flex-col">
+                        <label for="ukuran" class="mb-1 text-sm font-medium">Ukuran</label>
+                        <input type="text" id="ukuran" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
+                    </div>
 
-        <!-- Satuan -->
-        <div class="flex flex-col">
-          <label for="satuan" class="mb-1 text-sm font-medium">Satuan</label>
-          <input type="text" id="satuan" placeholder="ket." class="border p-2 rounded-md text-sm w-28">
-        </div>
+                    <!-- Satuan -->
+                    <div class="flex flex-col">
+                        <label for="satuan" class="mb-1 text-sm font-medium">Satuan</label>
+                        <input type="text" id="satuan" placeholder="ket." class="border p-2 rounded-md text-sm w-28">
+                    </div>
 
-        <!-- Banyak -->
-        <div class="flex flex-col">
-          <label for="banyak" class="mb-1 text-sm font-medium">Banyak</label>
-          <input type="number" id="banyak" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
-        </div>
+                    <!-- Banyak -->
+                    <div class="flex flex-col">
+                        <label for="banyak" class="mb-1 text-sm font-medium">Banyak</label>
+                        <input type="number" id="banyak" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
+                    </div>
 
-        <!-- Signa -->
-        <div class="flex flex-col">
-          <label for="signa" class="mb-1 text-sm font-medium">Signa</label>
-          <input type="text" id="signa" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
-        </div>
+                    <!-- Signa -->
+                    <div class="flex flex-col">
+                        <label for="signa" class="mb-1 text-sm font-medium">Signa</label>
+                        <input type="text" id="signa" placeholder="Angka" class="border p-2 rounded-md text-sm w-28">
+                    </div>
 
-        <!-- Keterangan -->
-        <div class="flex flex-col">
-          <label for="keterangan" class="mb-1 text-sm font-medium">Keterangan</label>
-          <input type="text" id="keterangan" placeholder="ket." class="border p-2 rounded-md text-sm w-40">
-        </div>
+                    <!-- Keterangan -->
+                    <div class="flex flex-col">
+                        <label for="keterangan" class="mb-1 text-sm font-medium">Keterangan</label>
+                        <input type="text" id="keterangan" placeholder="ket."
+                            class="border p-2 rounded-md text-sm w-40">
+                    </div>
 
-        <!-- Tombol Ok -->
-        <div class="flex flex-col mt-6">
-          <button id="addObat" class="bg-[#709972] hover:bg-green-500 text-white px-4 py-2 rounded-md">
-            OK
-          </button>
-        </div>
+                    <!-- Tombol Ok -->
+                    <div class="flex flex-col mt-6">
+                        <button id="addObat" class="bg-[#709972] hover:bg-green-500 text-white px-4 py-2 rounded-md">
+                            OK
+                        </button>
+                    </div>
 
-      </div>
-    </div>
+                </div>
+            </div>
 
 
-<!-- Form Racik -->
-<div id="form-racik" class="p-4 border rounded-md hidden">
-    <div class="grid grid-cols-5 gap-2 text-sm font-semibold mb-2">
-        <label>Nama Obat</label>
-        <label>Jenis Obat</label>
-        <label>Ukuran</label>
-        <label>Satuan</label>
-        <label>Jumlah</label>
-    </div>
-    <div class="grid grid-cols-5 gap-2 items-center">
-        <input type="text" id="namaRacikan" placeholder="Nama Obat" class="border p-2 rounded-md text-sm w-full">
-        <select id="jenisRacikan" class="border p-2 rounded-md bg-gray-200 text-sm w-full">
-            <option value="Tablet">Tablet</option>
-            <option value="Kapsul">Kapsul</option>
-            <option value="Sirup Normal">Sirup Normal</option>
-            <option value="Sirup Forte">Sirup Forte</option>
-          </select>
-        <input type="number" id="ukuranRacikan" placeholder="Ukuran" class="border p-2 rounded-md text-sm w-full">
-        <input type="text" id="satuanRacikan" placeholder="Satuan" class="border p-2 rounded-md text-sm w-full">
-        <input type="number" id="jumlahRacikan" placeholder="Jumlah" class="border p-2 rounded-md text-sm w-full">
-    </div>
-    <div class="mt-4 flex justify-end">
-        <button id="addRacikan" class="bg-[#709972] text-white px-4 py-2 rounded-md">OK</button>
-    </div>
+            <!-- Form Racik -->
+            <div id="form-racik" class="p-4 border rounded-md hidden">
+                <div class="grid grid-cols-5 gap-2 text-sm font-semibold mb-2">
+                    <label>Nama Obat</label>
+                    <label>Jenis Obat</label>
+                    <label>Ukuran</label>
+                    <label>Satuan</label>
+                    <label>Jumlah</label>
+                </div>
+                <div class="grid grid-cols-5 gap-2 items-center">
+                    <input type="text" id="namaRacikan" placeholder="Nama Obat"
+                        class="border p-2 rounded-md text-sm w-full">
+                    <select id="jenisRacikan" class="border p-2 rounded-md bg-gray-200 text-sm w-full">
+                        <option value="Tablet">Tablet</option>
+                        <option value="Kapsul">Kapsul</option>
+                        <option value="Sirup Normal">Sirup Normal</option>
+                        <option value="Sirup Forte">Sirup Forte</option>
+                    </select>
+                    <input type="number" id="ukuranRacikan" placeholder="Ukuran"
+                        class="border p-2 rounded-md text-sm w-full">
+                    <input type="text" id="satuanRacikan" placeholder="Satuan"
+                        class="border p-2 rounded-md text-sm w-full">
+                    <input type="number" id="jumlahRacikan" placeholder="Jumlah"
+                        class="border p-2 rounded-md text-sm w-full">
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button id="addRacikan" class="bg-[#709972] text-white px-4 py-2 rounded-md">OK</button>
+                </div>
 
-    <div class="border border-gray-300 rounded-lg p-4 mt-4">
-        <div class="grid grid-cols-2 gap-2 text-sm font-semibold mb-2">
-            <label>Signa</label>
-            <label>Keterangan</label>
-        </div>
-        <div class="grid grid-cols-2 gap-2 items-center">
-            <input type="text" id="signaRacikan" placeholder="Signa" class="border p-2 rounded-md text-sm w-full">
-            <input type="text" id="keteranganRacikan" placeholder="Keterangan" class="border p-2 rounded-md text-sm w-full">
-        </div>
-        <div class="mt-4 flex justify-end">
-            <button id="submitRacikan" class="bg-[#709972] text-white px-4 py-2 rounded-md">Tambah Racikan</button>
-        </div>
-    </div>
-</div>
+                <div class="border border-gray-300 rounded-lg p-4 mt-4">
+                    <div class="grid grid-cols-2 gap-2 text-sm font-semibold mb-2">
+                        <label>Signa</label>
+                        <label>Keterangan</label>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 items-center">
+                        <input type="text" id="signaRacikan" placeholder="Signa"
+                            class="border p-2 rounded-md text-sm w-full">
+                        <input type="text" id="keteranganRacikan" placeholder="Keterangan"
+                            class="border p-2 rounded-md text-sm w-full">
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <button id="submitRacikan" class="bg-[#709972] text-white px-4 py-2 rounded-md">Tambah
+                            Racikan</button>
+                    </div>
+                </div>
+            </div>
 
             <!-- Prescription List -->
             <div class="mt-4 p-4 border rounded-md bg-gray-100" id="prescriptionListNon">
                 <!-- Items will be added dynamically here -->
+                <div class="border border-gray-300 rounded-lg p-4 mt-4">
+                    <p class="font-semibold mb-2">Obat-obat dalam racikan sementara:</p>
+                    <ul id="racikanTempContainer" class="list-disc list-inside"></ul>
+                </div>
 
-            <div class="mt-4 p-4 bg-gray-100" id="prescriptionList">
+                <div class="mt-4 p-4 bg-gray-100" id="prescriptionList">
 
-            </div>
+                </div>
             </div>
 
             <!-- Buttons -->
             <div class="flex justify-between mt-4">
                 <button id="resetForm" class="bg-yellow-300 px-6 py-2 rounded-md">Reset</button>
-                <button class="bg-[#709972] px-6 py-2 rounded-md text-white"><a href="dokter/pasien"> Simpan </a> </button>
+                <button class="bg-[#709972] px-6 py-2 rounded-md text-white"><a href="dokter/pasien"> Simpan </a>
+                </button>
             </div>
         </div>
     </div>
 
 
-<script>
+    <script>
         function switchTab(tab) {
             const tabNon = document.getElementById("tab-nonracik");
             const tabRacik = document.getElementById("tab-racik");
@@ -184,32 +202,32 @@
     </script>
     <script>
         let racikanTemp = []; // sekarang menjadi global
-       const obatList = ["Paracetamol", "Ibuprofen", "Amoxicillin", "Cetirizine", "Ranitidine"];
-    const namaObatInput = document.getElementById("namaObat");
-    const obatListContainer = document.getElementById("obatList");
+        const obatList = ["Paracetamol", "Ibuprofen", "Amoxicillin", "Cetirizine", "Ranitidine"];
+        const namaObatInput = document.getElementById("namaObat");
+        const obatListContainer = document.getElementById("obatList");
 
-    namaObatInput.addEventListener("input", function() {
-        const searchText = this.value.toLowerCase();
-        obatListContainer.innerHTML = "";
-        if (searchText) {
-            const filteredObat = obatList.filter(obat => obat.toLowerCase().includes(searchText));
-            filteredObat.forEach(obat => {
-                const listItem = document.createElement("li");
-                listItem.textContent = obat;
-                listItem.classList.add("p-2", "cursor-pointer", "hover:bg-gray-200");
-                listItem.addEventListener("click", function() {
-                    namaObatInput.value = obat;
-                    obatListContainer.classList.add("hidden");
+        namaObatInput.addEventListener("input", function () {
+            const searchText = this.value.toLowerCase();
+            obatListContainer.innerHTML = "";
+            if (searchText) {
+                const filteredObat = obatList.filter(obat => obat.toLowerCase().includes(searchText));
+                filteredObat.forEach(obat => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = obat;
+                    listItem.classList.add("p-2", "cursor-pointer", "hover:bg-gray-200");
+                    listItem.addEventListener("click", function () {
+                        namaObatInput.value = obat;
+                        obatListContainer.classList.add("hidden");
+                    });
+                    obatListContainer.appendChild(listItem);
                 });
-                obatListContainer.appendChild(listItem);
-            });
-            obatListContainer.classList.remove("hidden");
-        } else {
-            obatListContainer.classList.add("hidden");
-        }
-    });
-    // SCRIPT TAMBAH DATA NON RACIK
-        document.getElementById('addObat').addEventListener('click', function(event) {
+                obatListContainer.classList.remove("hidden");
+            } else {
+                obatListContainer.classList.add("hidden");
+            }
+        });
+        // SCRIPT TAMBAH DATA NON RACIK
+        document.getElementById('addObat').addEventListener('click', function (event) {
             event.preventDefault();
 
             let namaObat = document.getElementById('namaObat').value;
@@ -247,105 +265,96 @@
             document.getElementById('keterangan').value = '';
         });
 
-        document.getElementById('resetForm').addEventListener('click', function() {
-        document.getElementById('namaObat').value = '';
-        document.getElementById('jenisObat').value = 'Tablet';
-        document.getElementById('ukuran').value = '';
-        document.getElementById('banyak').value = '';
-        document.getElementById('signa').value = '';
-        document.getElementById('satuan').value = '';
-        document.getElementById('keterangan').value = '';
-        document.getElementById('prescriptionList').innerHTML = '';
-    });
-// SCRIPT TAMBAH DATA RACIKAN PER ITEM
-        document.getElementById('addRacikan').addEventListener('click', function(event) {
-    event.preventDefault();
-    let nama = document.getElementById('namaRacikan').value;
-    let jenis = document.getElementById('jenisRacikan').value;
-    let ukuran = document.getElementById('ukuranRacikan').value;
-    let jumlah = document.getElementById('jumlahRacikan').value;
-    let satuan = document.getElementById('satuanRacikan').value;
+        document.getElementById('resetForm').addEventListener('click', function () {
+            document.getElementById('namaObat').value = '';
+            document.getElementById('jenisObat').value = 'Tablet';
+            document.getElementById('ukuran').value = '';
+            document.getElementById('banyak').value = '';
+            document.getElementById('signa').value = '';
+            document.getElementById('satuan').value = '';
+            document.getElementById('keterangan').value = '';
+            document.getElementById('prescriptionList').innerHTML = '';
+        });
+        // SCRIPT TAMBAH DATA RACIKAN PER ITEM
+        document.getElementById('addRacikan').addEventListener('click', function (event) {
+            event.preventDefault();
+            let nama = document.getElementById('namaRacikan').value;
+            let jenis = document.getElementById('jenisRacikan').value;
+            let ukuran = document.getElementById('ukuranRacikan').value;
+            let jumlah = document.getElementById('jumlahRacikan').value;
+            let satuan = document.getElementById('satuanRacikan').value;
 
-    let prescriptionList = document.getElementById('prescriptionList');
+            if (nama === '' || jenis === '' || jumlah === '' || ukuran === '' || satuan === '') {
+                alert('Harap isi semua data racikan');
+                return;
+            }
 
-    if (nama === '' || jenis === '' || jumlah === '' || ukuran === ''|| satuan === '') {
-        alert('Harap isi semua data racikan');
-        return;
-    }
+            racikanTemp.push({
+                nama,
+                jenis,
+                ukuran,
+                satuan,
+                jumlah
+            });
 
-    racikanTemp.push({
-        nama,
-        jenis,
-        ukuran,
-        satuan,
-        jumlah
-    });
+            // tampilin obat di temp container
+            let tempContainer = document.getElementById('racikanTempContainer');
+            let newItem = document.createElement('li');
+            newItem.textContent = `${nama} (${jenis}), ${ukuran} ${satuan}, jumlah ${jumlah}`;
+            tempContainer.appendChild(newItem);
 
-    // alert(`Obat ${nama} ditambahkan ke dalam racikan.`);
+            // Reset form racik
+            document.getElementById('namaRacikan').value = '';
+            document.getElementById('jenisRacikan').value = 'Tablet';
+            document.getElementById('ukuranRacikan').value = '';
+            document.getElementById('jumlahRacikan').value = '';
+            document.getElementById('satuanRacikan').value = '';
+        });
+        /// Submit 1 grup racikan + tampilkan
+        document.getElementById('submitRacikan').addEventListener('click', function () {
 
-    prescriptionList.innerHTML = '';
+            let signa = document.getElementById('signaRacikan').value;
+            let keterangan = document.getElementById('keteranganRacikan').value;
 
-    // Buat container untuk 1 resep racikan
-    let groupDiv = document.createElement('div');
-    groupDiv.classList.add('bg-white', 'rounded-md', 'shadow', 'p-4', 'mb-4');
+            if (racikanTemp.length === 0) {
+                alert('Belum ada racikan yang dimasukkan!');
+                return;
+            }
 
-    let groupItems = racikanTemp.map(item => {
-        return `<li>${item.nama} (${item.jenis}), ${item.ukuran} ${item.satuan}, jumlah ${item.jumlah}</li>`;
-    }).join('');
+            if (signa === '' || keterangan === '') {
+                alert('Harap isi Signa dan Keterangan');
+                return;
+            }
 
-    groupDiv.innerHTML = `
-        <ul class="list-disc list-inside mb-2">${groupItems}</ul>
-    `;
+            // Buat container untuk 1 resep racikan
+            let groupDiv = document.createElement('div');
+            groupDiv.classList.add('bg-white', 'rounded-md', 'shadow', 'p-4', 'mb-4');
 
-    prescriptionList.appendChild(groupDiv);
+            // gabungin semua item racikan dan informasi signa & keterangan yang udah diinputin
+            let groupItems = racikanTemp.map(item => {
+                return `<li>${item.nama} (${item.jenis}), ${item.ukuran} ${item.satuan}, jumlah ${item.jumlah}</li>`;
+            }).join('');
 
+            groupDiv.innerHTML = `
+                <p><strong> Racik </strong></p>
+                <ul class="list-disc list-inside mb-2">${groupItems}</ul>
+                <p class="text-sm font-semibold">Signa : ${signa}</p>
+                <p class="text-sm font-semibold">Keterangan : ${keterangan}</p>
+                <button class="text-red-500 mt-2" onclick="this.parentElement.remove()">&#128465; Hapus</button>
+            `;
 
-    // Reset form racik
-    document.getElementById('namaRacikan').value = '';
-    document.getElementById('jenisRacikan').value = 'Pilih Jenis';
-    document.getElementById('ukuranRacikan').value = '';
-    document.getElementById('jumlahRacikan').value = '';
-    document.getElementById('satuanRacikan').value = '';
-});
-/// Submit 1 grup racikan + tampilkan
-document.getElementById('submitRacikan').addEventListener('click', function () {
+            // tambah grup racikan baru ke container utama
+            let prescriptionList = document.getElementById('prescriptionList');
+            prescriptionList.appendChild(groupDiv);
 
-    let signa = document.getElementById('signaRacikan').value;
-    let keterangan = document.getElementById('keteranganRacikan').value;
-
-    if (racikanTemp.length === 0) {
-        alert('Belum ada racikan yang dimasukkan!');
-        return;
-    }
-
-    let prescriptionList = document.getElementById('prescriptionList');
-
-    prescriptionList.innerHTML = '';
-    // Buat container untuk 1 resep racikan
-    let groupDiv = document.createElement('div');
-    groupDiv.classList.add('bg-white', 'rounded-md', 'shadow', 'p-4', 'mb-4');
-
-    let groupItems = racikanTemp.map(item => {
-        return `<li>${item.nama} , ${item.ukuran} ${item.satuan}, ${item.jumlah} ${item.jenis}</li>`;
-    }).join('');
-
-    groupDiv.innerHTML = `
-        <p><strong> Racik </strong></p>
-        <ul class="list-disc list-inside mb-2">${groupItems}</ul>
-        <p class="text-sm font-semibold">Signa : ${signa}</p>
-        <p class="text-sm font-semibold">Keterangan : ${keterangan}</p>
-        <button class="text-red-500 mt-2" onclick="this.parentElement.remove()">&#128465;</button>
-    `;
-
-    prescriptionList.appendChild(groupDiv);
-
-    // Kosongkan array setelah ditampilkan
-    racikanTemp = [];
-});
-
-
-
+            // Kosongkan array setelah ditampilkan
+            racikanTemp = [];
+            document.getElementById('racikanTempContainer').innerHTML = '';
+            document.getElementById('signaRacikan').value = '';
+            document.getElementById('keteranganRacikan').value = '';
+        });
     </script>
-</body>
-</html>
 
+</body>
+
+</html>
