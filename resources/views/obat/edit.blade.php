@@ -17,6 +17,7 @@
                             <label class="font-semibold">NAMA OBAT</label>
                             <input type="text" name="nama" value="{{ $obat->nama }}"
                                 class="w-full p-2 border rounded mb-2">
+                                test
                         </div>
 
                         <div class="mb-4">
